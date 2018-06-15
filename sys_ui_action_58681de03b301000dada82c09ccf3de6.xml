@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-06-15 22:42:31">
+<sys_ui_action action="INSERT_OR_UPDATE">
+<action_name/>
+<active>true</active>
+<client>true</client>
+<comments>Exports the workflow to xml</comments>
+<condition>gs.hasRole('maint') || gs.hasRole('admin')</condition>
+<form_action>true</form_action>
+<form_button>false</form_button>
+<form_context_menu>false</form_context_menu>
+<form_link>true</form_link>
+<hint>Export current version of workflow to .xml file</hint>
+<list_action>false</list_action>
+<list_banner_button>false</list_banner_button>
+<list_button>false</list_button>
+<list_choice>false</list_choice>
+<list_context_menu>false</list_context_menu>
+<list_link>false</list_link>
+<list_save_with_form_button>false</list_save_with_form_button>
+<name>Export Workflow</name>
+<onclick>callExportWorkflowVersion();</onclick>
+<order>100</order>
+<script><![CDATA[function callExportWorkflowVersion() {
+var url = new GlideURL('export_workflow_version.do');
+   url.addParam('sysparm_sys_id', gel("sys_uniqueValue").value);
+  var frame = top.gsft_main;
+   if (!frame)
+      frame = top;
+
+   frame.location = url.getURL();
+   
+}]]></script>
+<show_insert>false</show_insert>
+<show_multiple_update>false</show_multiple_update>
+<show_query>false</show_query>
+<show_update>true</show_update>
+<sys_class_name>sys_ui_action</sys_class_name>
+<sys_created_by>Frankie.Thompson</sys_created_by>
+<sys_created_on>2011-08-26 22:44:21</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>58681de03b301000dada82c09ccf3de6</sys_id>
+<sys_mod_count>15</sys_mod_count>
+<sys_name>Export Workflow</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Workflow Authoring Tools">2a4e1d868d50130092c0bd43794e0fb8</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_ui_action_58681de03b301000dada82c09ccf3de6</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-06-15 22:38:56</sys_updated_on>
+<table>wf_workflow_version</table>
+<ui11_compatible>false</ui11_compatible>
+<ui16_compatible>false</ui16_compatible>
+</sys_ui_action>
+</unload>
